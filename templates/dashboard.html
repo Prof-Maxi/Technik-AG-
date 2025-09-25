@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard - {{ settings.company_name if settings else 'Technik AG' }}{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Dashboard</h1>
+
+<div class="row">
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card bg-primary text-white">
+            <div class="card-body">
+                <h5 class="card-title">Artikel im Bestand</h5>
+                <p class="card-text display-4">{{ items_count }}</p>
+                <a href="{{ url_for('items') }}" class="btn btn-light">Alle Artikel anzeigen</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card bg-warning text-dark">
+            <div class="card-body">
+                <h5 class="card-title">Entliehene Artikel</h5>
+                <p class="card-text display-4">{{ borrowed_count }}</p>
+                <a href="{{ url_for('items', status='borrowed') }}" class="btn btn-dark">Entliehene anzeigen</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card bg-success text-white">
+            <div class="card-body">
+                <h5 class="card-title">Neuer Artikel</h5>
+                <p class="card-text"><i class="bi bi-plus-circle display-4"></i></p>
+                <a href="{{ url_for('add_item') }}" class="btn btn-light">Artikel hinzufügen</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

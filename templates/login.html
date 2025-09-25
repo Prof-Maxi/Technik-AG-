@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Login - {{ settings.company_name if settings else 'Technik AG' }}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white text-center py-3">
+                {% if settings and settings.logo_path %}
+                <img src="{{ url_for('static', filename=settings.logo_path) }}" alt="{{ settings.company_name }}" height="60" class="mb-2">
+                {% endif %}
+                <h4>{{ settings.company_name if settings else 'Technik AG' }}</h4>
+                <p class="mb-0">Lagerverwaltungssystem</p>
+            </div>
+            <div class="card-body p-4">
+                <form method="post">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Benutzername</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Passwort</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Anmelden</button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer text-center text-muted">
+                <small>Standard-Login: admin / admin</small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

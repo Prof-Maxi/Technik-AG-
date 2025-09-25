@@ -1,0 +1,60 @@
+/* Hauptstil für das Lagerverwaltungssystem */
+body {
+    background-color: #f8f9fa;
+}
+
+.navbar-brand img {
+    max-height: 40px;
+}
+
+.card {
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    margin-bottom: 1.5rem;
+}
+
+.card-header {
+    border-top-left-radius: 0.5rem !important;
+    border-top-right-radius: 0.5rem !important;
+}
+
+.table th {
+    background-color: #f8f9fa;
+}
+
+/* Login-Seite */
+.login-logo {
+    max-width: 200px;
+    margin-bottom: 1.5rem;
+}
+
+/* Dashboard-Karten */
+.dashboard-card {
+    transition: transform 0.2s;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Artikelliste */
+.table-responsive {
+    overflow-x: auto;
+}
+
+/* Formulare */
+.form-label {
+    font-weight: 500;
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 768px) {
+    .navbar-brand {
+        max-width: 180px;
+        overflow: hidden;
+    }
+    
+    h1 {
+        font-size: 1.75rem;
+    }
+}

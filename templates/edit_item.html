@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Artikel bearbeiten - {{ settings.company_name if settings else 'Technik AG' }}{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Artikel bearbeiten</h1>
+    <a href="{{ url_for('items') }}" class="btn btn-secondary">
+        <i class="bi bi-arrow-left"></i> Zurück zur Liste
+    </a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form method="post">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="item_number" class="form-label">Artikelnummer *</label>
+                    <input type="text" class="form-control" id="item_number" name="item_number" value="{{ item.item_number }}" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="name" class="form-label">Name *</label>
+                    <input type="text" class="form-control" id="name" name="name" value="{{ item.name }}" required>
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label for="description" class="form-label">Beschreibung</label>
+                <textarea class="form-control" id="description" name="description" rows="3">{{ item.description }}</textarea>
+            </div>
+            
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label for="shelf" class="form-label">Regal</label>
+                    <input type="text" class="form-control" id="shelf" name="shelf" value="{{ item.shelf }}">
+                </div>
+                <div class="col-md-4">
+                    <label for="position" class="form-label">Stellplatz</label>
+                    <input type="text" class="form-control" id="position" name="position" value="{{ item.position }}">
+                </div>
+                <div class="col-md-4">
+                    <label for="box" class="form-label">Box</label>
+                    <input type="text" class="form-control" id="box" name="box" value="{{ item.box }}">
+                </div>
+            </div>
+            
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="reset" class="btn btn-outline-secondary">Zurücksetzen</button>
+                <button type="submit" class="btn btn-primary">Änderungen speichern</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

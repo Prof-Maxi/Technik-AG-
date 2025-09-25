@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Benutzer hinzufügen - {{ settings.company_name if settings else 'Technik AG' }}{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Benutzer hinzufügen</h1>
+    <a href="{{ url_for('users') }}" class="btn btn-secondary">
+        <i class="bi bi-arrow-left"></i> Zurück zur Liste
+    </a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form method="post">
+            <div class="mb-3">
+                <label for="username" class="form-label">Benutzername *</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="password" class="form-label">Passwort *</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="is_admin" name="is_admin">
+                <label class="form-check-label" for="is_admin">Administrator-Rechte</label>
+            </div>
+            
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="reset" class="btn btn-outline-secondary">Zurücksetzen</button>
+                <button type="submit" class="btn btn-primary">Benutzer speichern</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

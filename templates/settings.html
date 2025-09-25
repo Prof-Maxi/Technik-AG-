@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Einstellungen - {{ settings.company_name if settings else 'Technik AG' }}{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Einstellungen</h1>
+
+<div class="card">
+    <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="company_name" class="form-label">Firmenname</label>
+                <input type="text" class="form-control" id="company_name" name="company_name" value="{{ settings.company_name }}">
+            </div>
+            
+            <div class="mb-3">
+                <label for="logo" class="form-label">Logo</label>
+                {% if settings.logo_path %}
+                <div class="mb-2">
+                    <img src="{{ url_for('static', filename=settings.logo_path) }}" alt="Aktuelles Logo" style="max-height: 100px;" class="border p-2">
+                </div>
+                {% endif %}
+                <input type="file" class="form-control" id="logo" name="logo" accept="image/*">
+                <div class="form-text">Empfohlene Größe: 200x60 Pixel</div>
+            </div>
+            
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="submit" class="btn btn-primary">Einstellungen speichern</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
